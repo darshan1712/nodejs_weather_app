@@ -4,8 +4,8 @@ const forecast = (latitude, longitude, callback) => {
     console.log(latitude);
     console.log(longitude);
     const url = 'http://api.weatherstack.com/current?access_key=76b552ea4356fe268b1acb86b64aee92&query=' + longitude + ',' + latitude + '&units=m';
-    console.log("http://api.weatherstack.com/current?access_key=76b552ea4356fe268b1acb86b64aee92&query=40.7831,-73.9712");
-    console.log(url);
+    //console.log("http://api.weatherstack.com/current?access_key=76b552ea4356fe268b1acb86b64aee92&query=40.7831,-73.9712");
+    //console.log(url);
     request({
         url,
         json: true
@@ -17,7 +17,7 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const data = body.current;
 
-            callback(undefined, `current temperature is ${data.temperature} and it feels like ${data.feelslike} and it's ${data.weather_descriptions}`)
+            callback(undefined, `current temperature is ${data.temperature} and it feels like ${data.feelslike} and it's ${data.weather_descriptions} and wind speed is ${data.wind_speed}`)
         }
     })
 }
